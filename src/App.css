@@ -386,6 +386,12 @@ header {
 /***** Responsive ********/
 
 @media only screen and (max-width: 800px) {
+  *{
+    cursor: pointer;
+  }
+  .cursor, .cursor2 {
+    display: none;
+  }
   .parent {
     display: block;
   }
@@ -402,11 +408,7 @@ header {
     left: 0;
   }
   .infos .tech { display: block;}
-  .close { margin-right: -20px ;}
-  .cursor, .cursor2 {
-    display: none;
-  }
-  
+  .close { margin-right: -20px ;}  
 }
 
 
