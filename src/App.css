@@ -15,7 +15,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #9779ED;
+  background: #ac93f0;
   border-radius: 10px;
 }
 
@@ -38,23 +38,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .infos {
   font-size: 14px;
   margin-bottom: 6px;
-  text-transform: uppercase;
   margin-top: 8px;
   height: 100%;
 }
 
 .infos h1 {
   color: white;
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.2;
   font-weight: 600;
   margin-bottom: 12px;
+}
+
+.infos p {
+  font-size: 16px;
+}
+
+.infos .tech {
+  display: flex;
+  gap: 20px;
 }
 
 .card {
@@ -64,6 +72,7 @@ header {
   backdrop-filter: blur(9.5px);
   border-radius: 30px;
   padding: 10px;
+  min-height: 10px;
   cursor: pointer;
   animation-name: normal;
   animation-duration: .3s;
@@ -72,7 +81,7 @@ header {
   animation-fill-mode: forwards;
 }
 .card:hover .link {
-  color: #9779ED;
+  color: #ac93f0;
 }
 
 .parent {
@@ -163,6 +172,8 @@ header {
   animation-fill-mode: forwards;
 }
 
+.full-screen h3 span { line-height: 30px;}
+
 @keyframes full {
   from {
     -webkit-transform: scale(0) ;
@@ -179,6 +190,10 @@ header {
     -webkit-transform: scale(1) ;
   }
 }
+.full-screen .content {
+  max-width: 80ch;
+  margin: auto;
+}
 .full-screen p {
   font-size: 20px;
   line-height: 150%;
@@ -188,7 +203,7 @@ header {
   margin-top: 50px;
   padding-bottom: 20px;
   width: 100%;
-  border-bottom: solid 1px #9779ED;
+  border-bottom: solid 1px #ac93f0;
 }
 .full-screen h3 {
   position: relative;
@@ -203,29 +218,30 @@ header {
   position: absolute;
   left: -30px ;
   content: "⁜";
-  color: #9779ED;
+  color: #ac93f0;
 }
 .full-screen span {
   font-size: inherit;
   line-height: inherit;
   font-weight: inherit;
-  color: #9779ED;
+  color: #ac93f0;
 }
 
 .close {
-  position: absolute;
+  position: sticky;
   top: 5%;
-  right: 2%;
+  margin-right: -40px ;
+  text-align: right;
   cursor: pointer;
 }
-.close:hover svg {color: #9779ED;}
+.close:hover svg {color: #ac93f0;}
 
 .techno-list {
   list-style: none;
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
-  color: #9779ED;
+  color: #ac93f0;
 }
 .techno-list li::before {
   content: "⁜";
@@ -235,7 +251,7 @@ header {
 .infos:has(.scroll-text){ margin: 0;}
 .scroll-text {
   position: absolute;
-  margin: 0;
+  margin: -5px 0;
   overflow: hidden;
 }
 .scroll-text span, .scroll-text::after {
@@ -257,27 +273,29 @@ header {
 
 .technique , .identity {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 }
-.technique {max-width: 80%;}
+.technique {
+  max-width: 80%;
+  gap: 20px;
+}
+.identity {gap: 10px;}
 .technique img {
-  color: #9779ED;
-  width: 50px;
-  height: 50px;
+  color: #ac93f0;
+  width: 30px;
+  height: 30px;
 }
 .identity .color {
-  width: 75px;
-  height: 75px;
+  width: 50px;
+  height: 50px;
   border-radius: 15px;
   border: solid 1px white;
 }
-.primary { background-color: #9779ED;}
+.primary { background-color: #ac93f0;}
 .dark { background-color: #0f0f0f;}
 .identity img {
-  height: 100px;
+  height: 70px;
 }
 .icon {
   width: 30px;
@@ -358,3 +376,14 @@ header {
 
 
 
+/***** Responsive ********/
+
+@media only screen and (max-width: 800px) {
+  .parent {
+    display: block;
+  }
+  .card {
+    margin: 30px 0;
+  }
+  .close { margin-right: -20px ;}
+}
