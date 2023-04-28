@@ -1,3 +1,4 @@
+* { cursor: none; }
 body {
   font-family: "Inter", sans-serif;
   font-size: 18px;
@@ -69,11 +70,10 @@ header {
   background: linear-gradient(120deg,
       rgba(255, 255, 255, 0.08) 15%,
       rgba(255, 255, 255, 0.01) 85%);
-  backdrop-filter: blur(9.5px);
+  backdrop-filter: blur(5px);
   border-radius: 30px;
   padding: 10px;
   min-height: 10px;
-  cursor: pointer;
   animation-name: normal;
   animation-duration: .3s;
   animation-iteration-count: 1;
@@ -153,8 +153,8 @@ header {
 }
 
 .full-screen {
-  position: absolute;
-  top: 15%;
+  position: fixed;
+  top: 10%;
   left: 4%;
   height: 80%;
   width: 80%;
@@ -164,6 +164,7 @@ header {
   background: linear-gradient(120deg,
       rgba(0, 0, 0, .5) 15%,
       rgba(0, 0, 0, .9) 85%);
+  backdrop-filter: blur(9px);
   overflow-y: scroll;
   animation-name: full;
   animation-duration: .3s;
@@ -232,7 +233,6 @@ header {
   top: 5%;
   margin-right: -40px ;
   text-align: right;
-  cursor: pointer;
 }
 .close:hover svg {color: #ac93f0;}
 
@@ -394,4 +394,45 @@ header {
   }
   .infos .tech { display: block;}
   .close { margin-right: -20px ;}
+}
+
+
+
+.cursor {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px solid #ac93f0;
+  transition: all 200ms ease-out;
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  transform: translate(calc(-50% + 15px), -50%);
+  z-index: 100;
+}
+
+.cursor2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #ac93f0;
+  opacity: .6;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: width .3s, height .3s, opacity .3s;
+  mix-blend-mode: difference;
+  z-index: 100;
+}
+
+.hover {
+  background-color: red;
+  opacity: 0.5;
+}
+
+.cursorinnerhover {
+  width: 50px;
+  height: 50px;
+  opacity: .5;
 }

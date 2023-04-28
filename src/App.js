@@ -1,7 +1,39 @@
-import './App.css';
-import { Card } from './components/Card';
+import { useEffect, useRef } from 'react'
+import './App.css'
+import { Card } from './components/Card'
 
 function App() {
+  const cursor = useRef(null)
+  const cursorinner = useRef(null)
+
+  const onMouseMove = (e) => {
+    cursor.current.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+    cursorinner.current.style.left = e.clientX + 'px'
+    cursorinner.current.style.top = e.clientY + 'px'
+  }
+
+  const onMouseDown = () => {
+    cursor.current.classList.add('click')
+    cursorinner.current.classList.add('cursorinnerhover')
+  }
+
+  const onMouseUp = () => {
+    cursor.current.classList.remove('click')
+    cursorinner.current.classList.remove('cursorinnerhover')
+  }
+
+  useEffect(()=>{
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mousedown', onMouseDown)
+    document.addEventListener('mouseup', onMouseUp)
+    return () => {
+      document.removeEventListener('mousemove', onMouseMove)
+      document.removeEventListener('mousedown', onMouseDown)
+      document.removeEventListener('mouseup', onMouseUp)
+    }
+  })
+
+
   return (
     <>
     {/* <video autoplay muted loop id="myVideo">
@@ -13,7 +45,7 @@ function App() {
     </header>
     <div className="parent">
         <div className="card div2">
-          <h4 className='scroll-text'>
+          <h4 className='scroll-text' data-text = "ECV • M2 dev web • Note d'intention • Mouvement • Cosmox • ">
             <span>ECV • M2 dev web • Note d'intention • Mouvement • Cosmox • ECV • M2 dev web • Note d'intention • Mouvement • Cosmox •</span>
           </h4>
         </div>
@@ -106,14 +138,14 @@ function App() {
               </p>
               <h2>En chiffre</h2>
               <p>Il est intéressant de noter que <span>la musique du monde</span> représente une petite partie de la musique disponible sur les plateformes de streaming, malgré l'accessibilité
-                croissante offerte par la technologie numérique. Selon une étude récente, <span>environ 33&nbsp;% des pays</span> du monde ont une présence musicale sur ces plateformes. Cela signifie
+                croissante offerte par la technologie numérique. Selon une étude récente, <span>environ 33&nbsp% des pays</span> du monde ont une présence musicale sur ces plateformes. Cela signifie
                 que la musique de nombreux pays n'est pas encore représentée sur les plateformes de streaming, ce qui limite l'accessibilité à la diversité culturelle musicale.
               </p>
               <p>De plus, il est alarmant de constater que même lorsque les musiques sont disponibles sur les plateformes, <span>la plupart des auditeurs ne les écoutent pas</span>. Selon la même étude,
-                environ <span>50&nbsp;%</span> de la musique disponible n'est pas du tout écoutée. Cela suggère que les auditeurs se concentrent sur un petit nombre d'artistes et de genres de musique, ce qui
+                environ <span>50&nbsp%</span> de la musique disponible n'est pas du tout écoutée. Cela suggère que les auditeurs se concentrent sur un petit nombre d'artistes et de genres de musique, ce qui
                 peut contribuer à une perte de diversité musicale.
               </p>
-              <p>Il est également important de noter que la situation est similaire en <span>France</span>, où seulement <span>3&nbsp;% des genres de musique</span> sont effectivement écoutés. Cela montre un manque de diversité dans
+              <p>Il est également important de noter que la situation est similaire en <span>France</span>, où seulement <span>3&nbsp% des genres de musique</span> sont effectivement écoutés. Cela montre un manque de diversité dans
                 les habitudes d'écoute de la population française, qui peut être dû à une multitude de facteurs tels que l'influence sociale, les habitudes d'écoute préexistantes et les algorithmes des
                 plateformes de streaming.</p>
               <p>Ces constats soulèvent la question de savoir : <br /><br /></p>
@@ -254,8 +286,10 @@ function App() {
         <div className="starfourth"></div>
         <div className="starfifth"></div>
       </div>
+      <div className="cursor" ref={cursor}></div>
+      <div className="cursor2" ref={cursorinner}></div>
     </>
   )
 }
 
-export default App;
+export default App
