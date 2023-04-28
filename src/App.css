@@ -248,28 +248,35 @@ header {
   margin: 5px;
 }
 
+.div2 {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .infos:has(.scroll-text){ margin: 0;}
+
 .scroll-text {
   position: absolute;
+  left: 0;
   margin: -5px 0;
-  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 .scroll-text span, .scroll-text::after {
   position: relative;
   display: inline-block;
   white-space: nowrap;
   top:0;
 }
-.scroll-text span {
-  margin: 0;
-  animation: defilement 10s infinite linear;
-}
-.scroll-text::after {
-  position: absolute;
-  top:0; left:0;
-  content:attr(data-text);
-  animation: defilement2 10s infinite linear;
-}
+
 
 .technique , .identity {
   display: flex;
@@ -383,7 +390,8 @@ header {
     display: block;
   }
   .card {
-    margin: 30px 0;
+    margin: 20px 0;
   }
+  .infos .tech { display: block;}
   .close { margin-right: -20px ;}
 }

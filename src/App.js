@@ -13,8 +13,8 @@ function App() {
     </header>
     <div className="parent">
         <div className="card div2">
-          <h4 className='scroll-text' data-text = "ECV • M2 dev web • Note d'intention • Mouvement • Cosmox • ">
-            <span>ECV • M2 dev web • Note d'intention • Mouvement • Cosmox • </span>
+          <h4 className='scroll-text'>
+            <span>ECV • M2 dev web • Note d'intention • Mouvement • Cosmox • ECV • M2 dev web • Note d'intention • Mouvement • Cosmox •</span>
           </h4>
         </div>
       <Card
@@ -88,11 +88,10 @@ function App() {
           }
         />
         <Card className="div4"
-          info={
-          <>
+          info={<>
             <h1>Constat</h1>
             <p>Comment favoriser la découverte musicale sans l'influence de nos préférences d'écoute ?</p>
-            </>}
+          </>}
           content={
             <>
               <h2>Les plateformes d'écoutes</h2>
