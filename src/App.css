@@ -392,8 +392,21 @@ header {
   .card {
     margin: 20px 0;
   }
+  .card.full-screen {
+    margin: 0;
+  }
+  .full-screen {
+    height: 100%;
+    width: 90%;
+    top: 0;
+    left: 0;
+  }
   .infos .tech { display: block;}
   .close { margin-right: -20px ;}
+  .cursor, .cursor2 {
+    display: none;
+  }
+  
 }
 
 
