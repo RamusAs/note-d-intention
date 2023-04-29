@@ -1,9 +1,13 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
+import { useOnClickOutside } from "../useOnClickOutside"
 
 export const Card = ({info, content, className}) => {
+  const modal = useRef(null)
   const [full,setFull] = useState(false)
+  useOnClickOutside(modal, () => setFull(false))
+
   return (
-    <div className={`card ${className} ${full ? "full-screen" : ""}`} >
+    <div ref={modal} className={`card ${className} ${full ? "full-screen" : ""}`} >
       {!full &&
         <div className="infos" onClick={() => setFull(true)}>
           {info}
